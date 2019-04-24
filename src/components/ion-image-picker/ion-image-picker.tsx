@@ -1,17 +1,16 @@
-import { Component, ComponentInterface, Event, State, EventEmitter, Method, Prop, Watch } from '@stencil/core';
-import { StyleEventDetail } from '@ionic/core';
-
+import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ion-image-picker',
   styleUrl: 'ion-image-picker.css',
   shadow: true
 })
-export class IonImagePicker implements ComponentInterface {
+export class IonImagePicker implements ComponentInterface{
   constructor() {
     this.onClick = this.onClick.bind(this);
     this.handleFiles = this.handleFiles.bind(this);
 
+    console.log(this.value);
     this.value = [];
   }
 
@@ -38,18 +37,20 @@ export class IonImagePicker implements ComponentInterface {
   */
   @Prop() max: number = 1;
 
-  @State() value?: string[];
+  @Prop({ mutable: true }) value?: string[];
 
-  /**
-   * Emitted when the value (selected date) has changed.
-   */
-  @Event() ionChange!: EventEmitter<void>;
+  @Watch('value')
+  protected valueChanged() {
+    this.emitStyle();
+    this.ionChange.emit({
+      value: this.value
+    });
+  }
 
-  /**
-   * Emitted when the styles change.
-   * @internal
-   */
-  @Event() ionStyle!: EventEmitter<StyleEventDetail>;
+ /**
+  * Emitted when the value has changed.
+  */
+ @Event() ionChange!: EventEmitter<any>;
 
   componentWillLoad() {
     this.emitStyle();
@@ -99,23 +100,23 @@ export class IonImagePicker implements ComponentInterface {
   }
 
   private emitStyle() {
-    this.ionStyle.emit({
-      'interactive': true,
-      'datetime': true,
-      'interactive-disabled': this.disabled,
-    });
+    // this.ionStyle.emit({
+    //   'interactive': true,
+    //   'datetime': true,
+    //   'interactive-disabled': this.disabled,
+    // });
   }
 
   render() {
     return [
       <div class="img-container">
         {this.value.map((v) =>
-          <img src={v}></img>
+          <img class="rect" src={v}></img>
         )}
         <button
           type="button" 
           id="filebutton"
-          class="filebutton"
+          class="rect filebutton"
           disabled={this.disabled}
           onClick={this.onClick}
         ></button>

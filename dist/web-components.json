@@ -1,0 +1,25 @@
+{
+  "tags": [
+    {
+      "label": "ion-image-picker",
+      "description": "",
+      "attributes": [
+        {
+          "label": "disabled",
+          "description": "If `true`, the user cannot interact with the datetime.",
+          "required": false
+        },
+        {
+          "label": "max",
+          "description": "最多显示多少张图片",
+          "required": false
+        },
+        {
+          "label": "readonly",
+          "description": "If `true`, the datetime appears normal but is not interactive.",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

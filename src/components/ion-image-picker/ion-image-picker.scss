@@ -15,27 +15,23 @@
   text-overflow: ellipsis;
   white-space: wrap;
 
-  img {
-    width: 80px;
-    height: 80px;
-    margin-right: 5px;
+  .rect {
+    position: relative;
+    width: 22vw;
+    height: 22vw;
+    margin: 0 5px 5px 0;
   }
 }
 
 .filebutton {
-  border: 0.1px solid;
-  width: 80px;
-  height: 80px;
-  color: #ccc;
+  border: 1px solid;
+  color: #f4f5f8;
   transition: color .25s;
-  position: relative;
-
-  margin-right: 5px;
 }
 
 .filebutton::before{
-  content: '';
   position: absolute;
+  content: '';
   left: 50%;
   top: 50%;
   width: 50%;
@@ -45,8 +41,8 @@
 }
 
 .filebutton::after {
-  content: '';
   position: absolute;
+  content: '';
   left: 50%;
   top: 50%;
   height: 50%;

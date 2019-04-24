@@ -1,0 +1,63 @@
+{
+  "components": [
+    {
+      "tag": "ion-image-picker",
+      "dependencies": [],
+      "componentClass": "IonImagePicker",
+      "componentPath": "components/ion-image-picker/ion-image-picker.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/ion-image-picker/ion-image-picker.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "attr": "disabled",
+          "watch": [
+            "disabledChanged"
+          ]
+        },
+        {
+          "name": "max",
+          "type": "Number",
+          "attr": "max"
+        },
+        {
+          "name": "readonly",
+          "type": "Boolean",
+          "attr": "readonly"
+        },
+        {
+          "name": "value",
+          "mutable": true,
+          "attr": "value",
+          "watch": [
+            "valueChanged"
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "open"
+        }
+      ],
+      "events": [
+        {
+          "event": "ionChange"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.18.1",
+    "typescriptVersion": "3.3.3"
+  },
+  "bundles": []
+}
